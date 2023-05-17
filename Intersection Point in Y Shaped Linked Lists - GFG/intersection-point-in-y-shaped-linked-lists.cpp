@@ -82,7 +82,7 @@ struct Node {
 }; */
 
 //Function to find intersection point in Y shaped Linked Lists.
-/*int intersectPoint(Node* head1, Node* head2)
+int intersectPoint(Node* head1, Node* head2)
 {
     int ans=-1;
     while(head1!=NULL){
@@ -90,33 +90,14 @@ struct Node {
         head1=head1->next;
     }
     while(head2!=NULL){
-      if(head2->data>10000){
+      if(head2->data>1000){
         return (head2->data)-10000;
     }
         head2=head2->next;
   }
     return ans;
     
-}*/
-int intersectPoint(Node* head1, Node* head2)
-{
-   // Your Code Here
-   while(head1)
-   {
-   // making all nodes greater than 1000
-       head1->data=(head1->data)+10000;
-       head1=head1->next;
-   }
-   while(head2)
-   {
-   // if any node is greater than 1000 , then this node is already visited , therefore it is the common node
-       if(head2->data>1000)
-       {
-           return (head2->data)-(10000);
-       }
-       head2=head2->next;
-   }
-   return -1;
 }
+
 
 
