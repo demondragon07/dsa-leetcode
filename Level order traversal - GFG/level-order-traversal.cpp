@@ -52,14 +52,14 @@ class Solution
       queue<Node*>q;
       q.push(node);
       while(!q.empty()){
-          Node*temp=q.front();
+          node=q.front();
           q.pop();
-          v.push_back(temp->data);
-          if(temp->left){
-             q.push(temp->left);
+          v.push_back(node->data);
+          if(node->left){
+             q.push(node->left);
           }
-           if(temp->right){
-             q.push(temp->right);
+           if(node->right){
+             q.push(node->right);
           }
       }
       return v;
