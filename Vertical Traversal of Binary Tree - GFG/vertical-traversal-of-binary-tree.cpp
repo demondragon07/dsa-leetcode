@@ -116,7 +116,7 @@ class Solution
           pair<Node*,pair<int,int>>temp=q.front();
           Node*frontend=temp.first;
           int hd=temp.second.first;
-          int level=temp.second.first;
+          int level=temp.second.second;
           q.pop();
           
           mp[hd][level].push_back(frontend->data);
