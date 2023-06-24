@@ -116,42 +116,25 @@ int main() {
 
 // Function to insert a node in a BST.
 
-bool search(Node*&root,int &key){
-    Node*temp=root;
-    while(temp!=NULL){
-        if(temp->data==key){
-            return true;
-        }
-        if(temp->data>key){
-            temp=temp->left;
-        }else{
-            temp=temp->right;
-        }
-        
-    }
-    
-    return false;
-}
-
 
 Node* insert(Node* root, int Key) {
   
-    bool ispresent=search(root,Key);
-    
-    if(ispresent){
-        return root;
-    }else{
-        if(root==NULL){
+      if(root==NULL){
             root=new Node(Key);
+        }
+   
+        if(root->data==Key){
             return root;
         }
+        
+        
         if(root->data>Key){
             root->left=insert(root->left,Key);
-            return root;
         }else{
             root->right=insert(root->right,Key);
-            return root;
-        }
-    }
     
+        }
+        
+        return root;
+        
 }
