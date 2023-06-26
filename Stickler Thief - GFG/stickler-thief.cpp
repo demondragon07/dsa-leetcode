@@ -7,6 +7,7 @@ typedef long long int ll;
 class Solution
 {
     private:
+    //recursion+Memorization
     int solve(int arr[],int n,int i,vector<int>&dp){
         if(i>=n){
             return 0;
@@ -22,14 +23,30 @@ class Solution
        
     }
     
+    private:
+    //Bottom -UP or Tabulation
+    
+    int solve(int arr[],int n){
+         vector<int>dp(n+2,0);
+        
+        for(int i=n-1;i>=0;i--){
+             int op1=arr[i]+dp[i+2];
+             int op2=0+dp[i+1];
+              dp[i]=max(op1,op2);
+       
+        }
+        return dp[0];
+       
+    }
+    
     
     public:
     //Function to find the maximum money the thief can get.
     int FindMaxSum(int arr[], int n)
     {
-        vector<int>dp(n+1,-1);
+        //vector<int>dp(n+1,-1);
         int i=0;
-       return solve(arr,n,0,dp);
+       return solve(arr,n);
     }
 };
 
