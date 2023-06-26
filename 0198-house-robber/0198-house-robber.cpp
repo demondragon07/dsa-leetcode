@@ -28,9 +28,9 @@ class Solution {
        
     }*/
 
-    private:
+  //  private:
     //Bottom-UP
-     int solve(vector<int>& nums){
+   /*  int solve(vector<int>& nums){
          vector<int>dp(nums.size()+2,0);
         
         for(int i=nums.size()-1;i>=0;i--){
@@ -41,6 +41,24 @@ class Solution {
         }
         return dp[0];
     }
+    */
+    private:
+    int solve(vector<int>& nums){
+       int next1=0;
+       int next2=0;
+       int curr;
+        
+        for(int i=nums.size()-1;i>=0;i--){
+             int op1=nums[i]+next2;
+             int op2=0+next1;
+              curr=max(op1,op2);
+        
+           next2=next1;
+           next1=curr;
+         
+        }
+        return curr;
+  }
 
 public:
     int rob(vector<int>& nums) {
