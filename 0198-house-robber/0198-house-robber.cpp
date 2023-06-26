@@ -11,9 +11,9 @@ class Solution {
         return max(op1,op2);
     }
 */
-//private:
+private:
 //Recursion+ Memorization
-   /* int solve(vector<int>& nums,int i,vector<int>&dp){
+    int solve(vector<int>& nums,int i,vector<int>&dp){
         if(i>=nums.size()){
             return 0;
         }
@@ -26,7 +26,7 @@ class Solution {
          dp[i]=max(op1,op2);
         return dp[i];
        
-    }*/
+    }
 
   //  private:
     //Bottom-UP
@@ -42,7 +42,8 @@ class Solution {
         return dp[0];
     }
     */
-    private:
+    /*private:
+    //space optimization--
     int solve(vector<int>& nums){
        int next1=0;
        int next2=0;
@@ -58,12 +59,12 @@ class Solution {
          
         }
         return curr;
-  }
+  }*/
 
 public:
     int rob(vector<int>& nums) {
-        // vector<int>dp(nums.size()+2,-1);
-       //return solve(nums,0,dp);
-       return solve(nums);
+         vector<int>dp(nums.size()+2,-1);
+       return solve(nums,0,dp);
+       //return solve(nums);
     }
 };
