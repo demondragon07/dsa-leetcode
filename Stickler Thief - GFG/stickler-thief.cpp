@@ -8,7 +8,7 @@ class Solution
 {
     private:
     //recursion+Memorization
-    int solve(int arr[],int n,int i,vector<int>&dp){
+    /*int solve(int arr[],int n,int i,vector<int>&dp){
         if(i>=n){
             return 0;
         }
@@ -21,7 +21,7 @@ class Solution
          dp[i]=max(op1,op2);
         return dp[i];
        
-    }
+    }*/
     
     private:
     //Bottom -UP or Tabulation
@@ -45,7 +45,7 @@ class Solution
     int FindMaxSum(int arr[], int n)
     {
         //vector<int>dp(n+1,-1);
-        int i=0;
+        //int i=0;
        return solve(arr,n);
     }
 };
