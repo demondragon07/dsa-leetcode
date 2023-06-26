@@ -27,7 +27,7 @@ class Solution
     //Function to find the maximum money the thief can get.
     int FindMaxSum(int arr[], int n)
     {
-        vector<int>dp(n+2,-1);
+        vector<int>dp(n+1,-1);
         int i=0;
        return solve(arr,n,0,dp);
     }
