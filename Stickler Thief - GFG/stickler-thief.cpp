@@ -26,7 +26,7 @@ class Solution
     private:
     //Bottom -UP or Tabulation
     
-    int solve(int arr[],int n){
+    /*int solve(int arr[],int n){
          vector<int>dp(n+2,0);
         
         for(int i=n-1;i>=0;i--){
@@ -37,7 +37,26 @@ class Solution
         }
         return dp[0];
        
-    }
+    }*/
+    
+    private:
+    int solve(int arr[],int n){
+       int next1=0;
+       int next2=0;
+       int curr;
+        
+        for(int i=n-1;i>=0;i--){
+             int op1=arr[i]+next2;
+             int op2=0+next1;
+              curr=max(op1,op2);
+        
+           next2=next1;
+           next1=curr;
+         
+        }
+        return curr;
+  }
+    
     
     
     public:
