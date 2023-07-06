@@ -30,6 +30,32 @@ class Solution
         
     }
     
+    int solvespace(int W, int wt[], int val[], int n){
+        
+        vector<int>curr(W+1,0);
+        vector<int>next(W+1,0);
+        
+           for(int index=n-1;index>=0;index--){
+            for(int capacity=0;capacity<=W;capacity++){
+                
+                  int include=0;
+              if(capacity>=wt[index]){
+                 include=val[index]+next[capacity-wt[index]];
+        }
+        
+        
+            int exclude=0+next[capacity];
+        
+            curr[capacity]=max(include,exclude);
+            }
+            curr=next;
+      }
+      
+      return curr[W];
+        
+    }
+        
+    
     public:
     //Function to return max value that can be put in knapsack of capacity W.
     int knapSack(int W, int wt[], int val[], int n) 
