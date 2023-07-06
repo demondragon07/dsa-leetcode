@@ -11,7 +11,7 @@ class Solution{
 	
 	private:
 	
-      int solve(int n, vector<int>&dp){
+      /*int solve(int n, vector<int>&dp){
 	    if(n==0){
 	        return 0;
 	    }
@@ -28,34 +28,32 @@ class Solution{
 	    
 	    return dp[n]=ans;
 	}
-	
+	*/
 	int solvetab(int N){
 	     vector<int>dp(N+1,0);
 	     
 	     
 	     
-	     for(int n=1;n<=N;n++){
-	       
-	       int ans=INT_MAX;
+	for(int n=1;n<=N;n++){
+	    int ans=INT_MAX;
 	    
 	    for(int i=1;i<=sqrt(n);i++){
-				 int square=i*i;
-	        ans=min(ans,1+dp[n-square]);
-	    }
+				  int square=i*i;
+	         ans=min(ans,1+dp[n-square]);
+	       }
 	    
-	    return dp[n]=ans;
-	         
-	     }
-	     
-	     return dp[N];
+	         dp[n]=ans;
+	   }
+	   
+	    return dp[N];
 	}
 	
 	public:
 	
 	int MinSquares(int n)
 	{
-	    vector<int>dp(n+1,-1);
-	   return solve(n,dp);
+	   
+	   return solvetab(n);
 	}
 };
 
