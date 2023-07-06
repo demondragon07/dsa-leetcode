@@ -9,31 +9,11 @@ using namespace std;
 
 class Solution{
 	
-	private:
+ private:
 	
-      /*int solve(int n, vector<int>&dp){
-	    if(n==0){
-	        return 0;
-	    }
-       if(dp[n]!=-1){
-				 return dp[n];
-			 }
-	    
-	    int ans=INT_MAX;
-	    
-	    for(int i=1;i<=sqrt(n);i++){
-				 int square=i*i;
-	        ans=min(ans,1+solve(n-square,dp));
-	    }
-	    
-	    return dp[n]=ans;
-	}
-	*/
-	int solvetab(int N){
-	     vector<int>dp(N+1,0);
-	     
-	     
-	     
+ int solvetab(int N){
+	 vector<int>dp(N+1,0);
+	  
 	for(int n=1;n<=N;n++){
 	    int ans=INT_MAX;
 	    
@@ -41,12 +21,11 @@ class Solution{
 				  int square=i*i;
 	         ans=min(ans,1+dp[n-square]);
 	       }
-	    
 	         dp[n]=ans;
 	   }
 	   
-	    return dp[N];
-	}
+     return dp[N];
+  }
 	
 	public:
 	
