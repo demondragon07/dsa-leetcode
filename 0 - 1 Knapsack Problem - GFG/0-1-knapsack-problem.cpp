@@ -8,35 +8,34 @@ class Solution
 {   
     private:
     
-    int solve(int val[],int wt[], int n, int index,int capacity,vector<vector<int>>&dp){
+    int solveTab(int W, int wt[], int val[], int n){
+        vector<vector<int>>dp(n+1,vector<int>(W+1,0));
         
-        if(index==n || capacity==0){
-            return 0;
-        }
-        
-        if(dp[index][capacity]!=-1){
-          return dp[index][capacity] ;  
-        }
-        
-        int include=0;
-        if(capacity>=wt[index]){
-            include=val[index]+solve(val,wt,n,index+1,capacity-wt[index],dp);
+        for(int index=n-1;index>=0;index--){
+            for(int capacity=0;capacity<=W;capacity++){
+                
+                  int include=0;
+              if(capacity>=wt[index]){
+                 include=val[index]+dp[index+1][capacity-wt[index]];
         }
         
         
-        int exclude=0+solve(val,wt,n,index+1,capacity,dp);
+            int exclude=0+dp[index+1][capacity];
         
-        return dp[index][capacity]=max(include,exclude);
-    
+             dp[index][capacity]=max(include,exclude);
+            }
+      }
+      
+      return dp[0][W];
+        
     }
-    
     
     public:
     //Function to return max value that can be put in knapsack of capacity W.
     int knapSack(int W, int wt[], int val[], int n) 
     { 
-       vector<vector<int>>dp(n+1,vector<int>(W+1,-1));
-       return solve(val,wt,n,0,W,dp);
+      
+       return solveTab(W,wt,val,n);
        
     }
 };
