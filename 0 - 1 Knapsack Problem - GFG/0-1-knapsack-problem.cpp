@@ -8,7 +8,7 @@ class Solution
 {   
     private:
     
-    int solveTab(int W, int wt[], int val[], int n){
+    /*int solveTab(int W, int wt[], int val[], int n){
         vector<vector<int>>dp(n+1,vector<int>(W+1,0));
         
         for(int index=n-1;index>=0;index--){
@@ -28,7 +28,7 @@ class Solution
       
       return dp[0][W];
         
-    }
+    }*/
     
     int solvespace(int W, int wt[], int val[], int n){
         
@@ -48,7 +48,7 @@ class Solution
         
             curr[capacity]=max(include,exclude);
             }
-            curr=next;
+            next=curr;
       }
       
       return curr[W];
@@ -61,7 +61,7 @@ class Solution
     int knapSack(int W, int wt[], int val[], int n) 
     { 
       
-       return solveTab(W,wt,val,n);
+       return solvespace(W,wt,val,n);
        
     }
 };
