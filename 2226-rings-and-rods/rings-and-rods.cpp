@@ -6,7 +6,7 @@ public:
         
         int count=0;
         
-        for(int i=1;i<n;i++){
+        for(int i=1;i<n;i+=2){
             mp[rings[i]-'0'].insert(rings[i-1]);
         }
 
